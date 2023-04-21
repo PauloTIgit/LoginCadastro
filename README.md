@@ -1,5 +1,3 @@
-
-
 # Tela de Login e Cadastro
 
 Este é um projeto de uma tela de login e cadastro desenvolvida utilizando HTML, CSS e JavaScript. O objetivo deste documento é fornecer uma visão geral do projeto e ajudar outros desenvolvedores a entender como a tela foi criada.
