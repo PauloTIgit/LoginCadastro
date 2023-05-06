@@ -4,7 +4,6 @@
     justify-content: center;
     align-items: center;
 }
-
 .login-container{
     height: 25rem;
     width: 45rem;
@@ -13,7 +12,6 @@
     overflow: hidden;
     position: relative;
 }
-
 .login-container.move .overlay-container{
     transform: translateX(0);
 }
@@ -21,8 +19,6 @@
     z-index: -1;
     opacity: 0;
 }
-
-
 .form-registro{
     transform: translateX(-100%);
     opacity: 0;
@@ -38,7 +34,6 @@
     opacity: 1;
     z-index: 0;
 }
-
 .form-container{
     height: 100%;
     width: 100%;
@@ -144,5 +139,12 @@
 .overlay-button:hover {
     border: 2px solid var(--color-azul-medio);
     background: var(--color-azul-medio);
+}
+
+.notificationErro{
+    padding: .5rem .5rem 1px .5rem;
+    border-bottom: solid 1px rgb(255, 0, 0);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #c74f4f;
 }
 

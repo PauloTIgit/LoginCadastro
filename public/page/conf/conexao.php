@@ -4,4 +4,4 @@ define('USUARIO', 'root');
 define('SENHA', '');
 define('DB', 'plataforma');
 
-$conexao = mysqli_connect(HOST, USUARIO, SENHA, DB) OR DIE ('Falha de comunicação com banco');
+$conexao = mysqli_connect(HOST, USUARIO, SENHA, DB) or die ('Falha de comunicação com banco');
