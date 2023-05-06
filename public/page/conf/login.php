@@ -1,47 +1,46 @@
 <?php
+session_start();
 
-// definimos a conexão 
-include('conexao.php');
 
-if (empty($_POST['email']) || empty($_POST['senha'])) {
+$mysqli = mysqli_connect("localhost", "root", "", "plataforma");
+
+$email = $_POST['email'];
+$senha = md5($_POST['senha']);
+
+$query = "SELECT * FROM usuario WHERE email = '$email'";
+
+$result = mysqli_query($mysqli, $query);
+
+$rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+foreach ($rows as $row) {
+    $nome = $row['nome'];
+    $nivel = $row['nivel'];
+    $senhaBD = $row['senha'];
+    $status = $row['status'];
+
+
+    $_SESSION['nome'] = $nome;
+    $_SESSION['nivel'] = $nivel;
+    $_SESSION['session'] = 1;
+}
+
+if($senha != $senhaBD ):
+    $_SESSION['erro'] = 'E-mail e Senha invalidos' ;
     header('Location: index.php');
-    exit();
-}
+    die();
+endif;
 
-// definimos algumas variaveis
-$email = mysqli_real_escape_string($conexao, $_POST['email']);
-$senha = mysqli_real_escape_string($conexao, $_POST['senha']);
-$senhaHash = md5($senha);
-$senhaHashLower = strtolower($senhaHash);
+if($status != 'ativo'):
+    $_SESSION['erro'] = 'Usuário esta bloqueado, entrar em contato com administrador '.$status.'.';
+    header('Location: index.php');
+    die();
+endif;
 
-// definimos o comandar a dar no banco de dados
-$verificarADM = " SELECT * FROM plataforma . usuario WHERE email = '{$email}' AND senha = '{$senhaHashLower}' AND adm = '1'  ";
-$verificarUSE = " SELECT * FROM plataforma . usuario WHERE email = '{$email}' AND senha = '{$senhaHashLower}' AND adm = '0'  ";
-
-$userADM = mysqli_num_rows(mysqli_query($conexao, $verificarADM));
-if($userADM >= 1){
-    header('Location: ?pagina=loginAdministrador');
-    exit();
-}else{
-    echo'erro adm';
-}
-
-$userUSE = mysqli_num_rows(mysqli_query($conexao, $verificarUSE));
-if ($userUSE >= 1) {
-    header('Location: ?pagina=loginUsuario');
-    exit();
-}else{
-    header('Location: ./public/page/loginUsuario/loginUsuario.php');
-
-}
-
-
-
-// if($row >= 1){
-//     header('Location: ?pagina=loginAdministrador');
-
-// }
-// if($row == 0){
-//     echo 'Usuario não existe por fazor realize o cadastro';
-// }
-
+if($nivel == 'admin'):
+    header('Location: ./?pagina=loginAdministrador');
+    elseif($nivel == 'user'):
+        header('Location: public/page/loginUsuario/loginUsuario.php');
+    else:
+        header('Location: index.php');
+        die();
+endif;
