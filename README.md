@@ -41,7 +41,7 @@ fotes_
 git clone https://github.com/seu-usuario/nome-do-repositorio.git
 ```
 
-2. No banco de dados execute comando no banco de dados.
+2. No banco de dados execute os comandos abixo.
 ```
 CREATE DATABASE plataforma;
 
