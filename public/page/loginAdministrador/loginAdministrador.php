@@ -23,9 +23,9 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 <section>
     <br>
-    <p> <?php echo 'Bem-Vindo ' . $_SESSION['nome']; ?> </p>
+    <p class="title"> <?php echo 'Bem-Vindo ' . $_SESSION['nome']; ?> </p>
     <div>
-        <table class="tabelaUsers">
+        <!-- <table class="tabelaUsers">
             <tr>
                 <th>Nome</th>
                 <th>E-mail</th>
@@ -41,6 +41,6 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 <br>
             </tr>
             <?php endforeach; ?>
-        </table>
+        </table> -->
     </div>
 </section>
