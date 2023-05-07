@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="./public/css/main.css">
     <link rel="stylesheet" type="text/css" href="./public/css/root.css">
     <link rel="stylesheet" type="text/css" href="./public/css/plataformaADM.css">
+    <link rel="stylesheet" type="text/css" href="./public/css/componente.css">
 </head>
 
 <body>

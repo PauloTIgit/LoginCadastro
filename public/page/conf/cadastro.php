@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 if (empty($_POST['email']) || empty($_POST['senha'])) {
     header('Location: index.php');
@@ -18,12 +17,37 @@ $senha = mysqli_real_escape_string($conexao, $_POST['senha']);
 $senhaHash = md5($senha);
 $senhaHashLower = strtolower($senhaHash);
 
-//definimos o comandar a dar no banco de dados
-$query = "INSERT INTO `plataforma`.`usuario` (`nome`, `email`, `senha` , `nivel` , `status`) VALUES ('{$nome}', '{$email}', '{$senhaHashLower}', 'user', 'null')";
-
+$query = "SELECT * FROM usuario WHERE email = '$email'";
 $result = mysqli_query($conexao, $query);
 
-//Redirecionamento 
-header('location: ?pagina=pageLoginCadastro');
+
+if(mysqli_num_rows($result) == 0):
+
+    //definimos o comandar a dar no banco de dados
+    $query = "INSERT INTO `plataforma`.`usuario`(
+                                                    `nome`,
+                                                    `email`,
+                                                    `senha`,
+                                                    `nivel`,
+                                                    `status`
+                                                )
+                                        VALUES  (
+                                                    '{$nome}',
+                                                    '{$email}',
+                                                    '{$senhaHashLower}',
+                                                    'user',
+                                                    'null'
+                                                )";
+    $result = mysqli_query($conexao, $query);
+
+elseif(mysqli_num_rows($result) >= 1):
+
+    header('location: index.php?erro=11111');
+    die();
+
+endif;
+
+// Redirecionamento 
+header('location: index.php?creat=1');
 
 

@@ -5,16 +5,6 @@
                 <!--Inicio do Login-->
                 <form action="?conf=login" method="post" class="form form-login">
                     <h2 class="form-title">Entrar com</h2>
-                    <?php
-                    // if (isset($_SESSION['nao_autenticado'])) :
-                    ?>
-                    <div class="notificationErro">
-                        <p>Usuário não cadastrado</p>
-                    </div>
-                    <?php
-                    // endif;
-                    // unset($_SESSION['nao_autenticado']);
-                    ?>
                     <div class="form-input-container">
                         <input name="email" type="email" class="form-input form-user" placeholder="E-mail" required>
                         <input name="senha" type="password" class="form-input form-pass" placeholder="Senha" required>

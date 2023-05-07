@@ -24,23 +24,29 @@ foreach ($rows as $row) {
     $_SESSION['session'] = 1;
 }
 
-if($senha != $senhaBD ):
-    $_SESSION['erro'] = 'E-mail e Senha invalidos' ;
-    header('Location: index.php');
+if ($senha != $senhaBD) :
+    // $_SESSION['erro'] = 'E-mail e Senha invalidos';
+    header('Location: index.php?erro=01100');
     die();
 endif;
 
-if($status != 'ativo'):
-    $_SESSION['erro'] = 'Usuário esta bloqueado, entrar em contato com administrador '.$status.'.';
-    header('Location: index.php');
+if ($status != 'ativo') : 
+?>
+
+<?php
+    // $_SESSION['erro'] = 'Usuário esta bloqueado, entrar em contato com administrador';
+    header('Location: index.php?erro=00001');
     die();
 endif;
 
-if($nivel == 'admin'):
+if ($nivel == 'admin') :
     header('Location: ./?pagina=loginAdministrador');
-    elseif($nivel == 'user'):
-        header('Location: public/page/loginUsuario/loginUsuario.php');
-    else:
-        header('Location: index.php');
-        die();
+elseif ($nivel == 'user') :
+    header('Location: public/page/loginUsuario/loginUsuario.php');
+else :
+    header('Location: index.php');
+    die();
 endif;
+
+?>
+
