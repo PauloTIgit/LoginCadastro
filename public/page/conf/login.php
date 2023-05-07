@@ -4,10 +4,10 @@ session_start();
 
 $mysqli = mysqli_connect("localhost", "root", "", "plataforma");
 
-$email = $_POST['email'];
+$nome_email = $_POST['nome_email'];
 $senha = md5($_POST['senha']);
 
-$query = "SELECT * FROM usuario WHERE email = '$email'";
+$query = "SELECT * FROM `plataforma`.`usuario` WHERE nome = '$nome_email' OR email= '$nome_email';";
 
 $result = mysqli_query($mysqli, $query);
 
@@ -26,7 +26,7 @@ foreach ($rows as $row) {
 
 if ($senha != $senhaBD) :
     // $_SESSION['erro'] = 'E-mail e Senha invalidos';
-    header('Location: index.php?erro=01100');
+    header('Location: index.php?erro=invalidos');
     die();
 endif;
 
@@ -35,14 +35,14 @@ if ($status != 'ativo') :
 
 <?php
     // $_SESSION['erro'] = 'Usuário esta bloqueado, entrar em contato com administrador';
-    header('Location: index.php?erro=00001');
+    header('Location: index.php?erro=desativado');
     die();
 endif;
 
 if ($nivel == 'admin') :
-    header('Location: ./?pagina=loginAdministrador');
+    header('Location: ./?pagina=staff');
 elseif ($nivel == 'user') :
-    header('Location: public/page/loginUsuario/loginUsuario.php');
+    header('Location:./?pagina=plataforma');
 else :
     header('Location: index.php');
     die();

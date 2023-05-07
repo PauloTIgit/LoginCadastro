@@ -42,7 +42,7 @@ if(mysqli_num_rows($result) == 0):
 
 elseif(mysqli_num_rows($result) >= 1):
 
-    header('location: index.php?erro=11111');
+    header('location: index.php?erro=login');
     die();
 
 endif;

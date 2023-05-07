@@ -10,8 +10,10 @@
     <link rel="stylesheet" type="text/css" href="./public/css/app.css">
     <link rel="stylesheet" type="text/css" href="./public/css/main.css">
     <link rel="stylesheet" type="text/css" href="./public/css/root.css">
-    <link rel="stylesheet" type="text/css" href="./public/css/plataformaADM.css">
+    <link rel="stylesheet" type="text/css" href="./public/css/staff.css">
     <link rel="stylesheet" type="text/css" href="./public/css/componente.css">
+    <link rel="stylesheet" type="text/css" href="menu/menu.css">
 </head>
 
 <body>
+
