@@ -15,7 +15,7 @@
     bottom: -5rem;
     right: 0;
     transition: all;
-    animation: pop-upERRO 10s forwards;
+    animation: pop-up 10s forwards;
 }
 .contentErro p{
     z-index: 2;
@@ -40,7 +40,7 @@
     bottom: -5rem;
     right: 0;
     transition: all;
-    animation: pop-upERRO 10s forwards;
+    animation: pop-up 10s forwards;
 }
 .contentConcluido p{
     z-index: 2;
@@ -54,7 +54,7 @@
 }
 
 
-@keyframes pop-upERRO {
+@keyframes pop-up {
     0% {
         bottom: -5rem;
     }
