@@ -24,20 +24,8 @@ $result = mysqli_query($conexao, $query);
 if(mysqli_num_rows($result) == 0):
 
     //definimos o comandar a dar no banco de dados
-    $query = "INSERT INTO `plataforma`.`usuario`(
-                                                    `nome`,
-                                                    `email`,
-                                                    `senha`,
-                                                    `nivel`,
-                                                    `status`
-                                                )
-                                        VALUES  (
-                                                    '{$nome}',
-                                                    '{$email}',
-                                                    '{$senhaHashLower}',
-                                                    'user',
-                                                    'null'
-                                                )";
+    $query = "INSERT INTO `plataforma`.`usuario`( `nome`,   `email`,      `senha`,      `nivel`,   `status`)
+                                        VALUES ('{$nome}','{$email}','{$senhaHashLower}','user',    'null')";
     $result = mysqli_query($conexao, $query);
 
 elseif(mysqli_num_rows($result) >= 1):

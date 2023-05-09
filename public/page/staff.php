@@ -1,24 +1,25 @@
 <?php
 
-if (!isset($_SESSION['session']) || isset($_SESSION['session']) && $_SESSION['session'] != 1) :
-    $_SESSION['erro'] = 'sessao';
-    header('Location: ./?pagina=home');
-    die();
-endif;
+    if (!isset($_SESSION['session']) || isset($_SESSION['session']) && $_SESSION['session'] != 1) :
+        $_SESSION['erro'] = 'sessao';
+        header('Location: ./?pagina=home');
+        die();
+    endif;
 
-if (!isset($_SESSION['nivel']) || isset($_SESSION['nivel']) && $_SESSION['nivel'] != 'admin') :
-    $_SESSION['erro'] = 'permicao';
-    header('Location: ./?pagina=home');
-    die();
-endif;
-
-
-$mysqli = mysqli_connect("localhost", "root", "", "plataforma");
+    if (!isset($_SESSION['nivel']) || isset($_SESSION['nivel']) && $_SESSION['nivel'] != 'admin') :
+        $_SESSION['erro'] = 'permicao';
+        header('Location: ./?pagina=home');
+        die();
+    endif;
 
 
-$query = "SELECT * FROM `plataforma`.`usuario`;";
-$result = mysqli_query($mysqli, $query);
-$rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $mysqli = mysqli_connect("localhost", "root", "", "plataforma");
+
+
+    $query = "SELECT * FROM `plataforma`.`usuario`;";
+    $result = mysqli_query($mysqli, $query);
+    $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    
 ?>
 
 
