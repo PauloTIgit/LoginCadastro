@@ -1,3 +1,6 @@
 <?php
-    echo "Aki e o Logoff"
+    $_SESSION['nome'] = '';
+    $_SESSION['erro'] = '';
+    session_unset();
+    header('location: index.php');
 ?>

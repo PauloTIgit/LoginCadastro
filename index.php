@@ -3,68 +3,84 @@ session_start();
 
 include_once './header.php';
 
-// Inicio Tratamento de erros
-if (isset($_GET['erro'])) :
-
-    //Esse erro denomina erro de status ?erro=desativado
-    if ($_GET['erro'] == 'desativado') : ?>
-        <div class="Aviso">
-            <div class="content">
-                <p>ERRO: Usuário esta desativado, entre em contato com o administrador!</p>
-            </div>
-        </div>
-    <?php endif;
-
-    //Esse erro denomina erro de email e senha ?erro=invalidos
-    if ($_GET['erro'] == 'invalidos') : ?>
-        <div class="Aviso">
-            <div class="contentErro">
-                <p>ERRO: E-mail e Senha invalidos!</p>
-            </div>
-        </div>
-    <?php endif;
-
-    //Esse erro denomina erro de email e senha ?erro=login
-    if ($_GET['erro'] == 'login') : ?>
-        <div class="Aviso">
-            <div class="contentErro">
-                <p>ERRO: Já existente um login com esse E-mail!</p>
-            </div>
-        </div>
-    <?php endif;
-
-    //Esse erro denomina erro de permição ?erro=permicao
-    if ($_GET['erro'] == 'permicao') : ?>
-        <div class="Aviso">
-            <div class="contentErro">
-                <p>ERRO: Você não tem permição para entrar aqui!</p>
-            </div>
-        </div>
-    <?php endif;
-
-    //Esse erro denomina erro de session ?erro=session
-    if ($_GET['erro'] == 'session') : ?>
-        <div class="Aviso">
-            <div class="contentErro">
-                <p>ERRO na sessão, logi novamente!</p>
-            </div>
-        </div>
-    <?php endif;
-endif;
-// Fim
 
 //usuario criado
-if (isset($_GET['creat'])) {
-    if ($_GET['creat'] == '1') {
+if (isset($_SESSION['creat']) && $_SESSION['creat'] != '') {
+    if ($_SESSION['creat'] == 'true') {
     ?>
         <div class="Aviso">
             <div class="contentConcluido">
                 <p>Cadastro concluido com sucesso!</p>
             </div>
         </div>
-<?php
+    <?php
+
     }
+    //Esse erro denomina erro de email e senha
+    elseif ($_SESSION['creat'] == 'false') {
+    ?>
+        <div class="Aviso">
+            <div class="contentErro">
+                <p>Já existente um login com essas credenciais!</p>
+            </div>
+        </div>
+    <?php
+
+    }
+
+    $_SESSION['creat'] = '';
 }
+
+// Inicio Tratamento de erros
+if (isset($_SESSION['erro']) && $_SESSION['erro'] != '') :
+
+    //Esse erro denomina erro de status 
+    if ($_SESSION['erro'] == 'desativado') : ?>
+        <div class="Aviso">
+            <div class="contentErro">
+                <p>Usuário esta desativado, entre em contato com o administrador!</p>
+            </div>
+        </div>
+    <?php endif;
+
+    //Esse erro denomina erro de email e senha 
+    if ($_SESSION['erro'] == 'invalidos') : ?>
+        <div class="Aviso">
+            <div class="contentErro">
+                <p>E-mail ou Senha invalido!</p>
+            </div>
+        </div>
+    <?php endif;
+
+    //Esse erro denomina erro de permição
+    if ($_SESSION['erro'] == 'permicao') : ?>
+        <div class="Aviso">
+            <div class="contentErro">
+                <p>Você não tem permição para entrar aqui!</p>
+            </div>
+        </div>
+    <?php endif;
+
+    //Esse erro denomina erro de session
+    if ($_SESSION['erro'] == 'sessao') : ?>
+        <div class="Aviso">
+            <div class="contentErro">
+                <p>ERRO na sessão, faça o logi novamente!</p>
+            </div>
+        </div>
+    <?php endif;
+
+    $_SESSION['erro'] = '';
+    $_SESSION['nivel'] = '';
+    $_SESSION['session'] = '';
+
+endif;
+// Fim
+
+
+/**
+ * Sitema de Rotas
+ */
 
 if (isset($_GET['pagina'])) {
     $pagina = trim(strip_tags(filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_URL)));
@@ -80,18 +96,11 @@ if (isset($_GET['conf'])) {
 if (isset($_GET['conf'])) :
     include_once './public/page/conf/' . $conf . '.php';
 
-    elseif (isset($_GET['pagina'])) :
-        include_once './public/page/' . $pagina . '.php';
-    else :
-        $pagina = 'home';
-        include_once './public/page/' . $pagina . '.php';
-endif;
-
-if (isset($_SESSION['erro']) && $_SESSION['erro'] != '') :
-    echo $_SESSION['erro'];
-    unset($_SESSION['erro']);
-    $_SESSION['nivel'] = '';
-    $_SESSION['session'] = '';
+elseif (isset($_GET['pagina'])) :
+    include_once './public/page/' . $pagina . '.php';
+else :
+    $pagina = 'home';
+    include_once './public/page/' . $pagina . '.php';
 endif;
 
 

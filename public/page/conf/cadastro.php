@@ -41,13 +41,14 @@ if(mysqli_num_rows($result) == 0):
     $result = mysqli_query($conexao, $query);
 
 elseif(mysqli_num_rows($result) >= 1):
-
-    header('location: index.php?erro=login');
+    $_SESSION['creat'] = 'false';
+    header('location: index.php');
     die();
 
 endif;
 
+$_SESSION['creat'] = 'true';
 // Redirecionamento 
-header('location: index.php?creat=1');
+header('location: index.php');
 
 

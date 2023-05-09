@@ -1,21 +1,20 @@
 <?php
 
+// Verificar seção
 if (!isset($_SESSION['session']) || isset($_SESSION['session']) && $_SESSION['session'] != 1) :
     $_SESSION['erro'] = 'sessao';
-    header('Location: ./?pagina=home');
+    header('Location: index.php');
     die();
 endif;
-
+// Verificar Previlegios
 if (!isset($_SESSION['nivel']) || isset($_SESSION['nivel']) && $_SESSION['nivel'] != 'admin') :
     $_SESSION['erro'] = 'permicao';
-    header('Location: ./?pagina=home');
+    header('Location: index.php');
     die();
 endif;
 
 
 $mysqli = mysqli_connect("localhost", "root", "", "plataforma");
-
-
 $query = "SELECT * FROM `plataforma`.`usuario`;";
 $result = mysqli_query($mysqli, $query);
 $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
@@ -45,9 +44,27 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
         <i id="dia_noite" class="fa radio fa-toggle-off" aria-hidden="true"></i>
         <i id="icon_noite" class="fa icon_noite fa-moon-o" aria-hidden="true"></i>
     </div>
-    <p class="title"> <?php echo 'Bem-Vindo ' . $_SESSION['nome']; ?> </p>
-   
+    <p class="title"> <?php echo 'Cadastros' ?> </p>
+    <p>home > cadastro</p>
+    <div>
+        <table class="tabelaUsers">
+            <div class="bloco">
+                <tr>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Permições</th>
+                    <th>Status</th>
+                </tr>
+                <?php foreach ($rows as $row) : ?>
+                    <tr>
+                        <th><?php echo $row['nome']; ?></th>
+                        <th><?php echo $row['email']; ?></th>
+                        <th><?php echo $row['nivel']; ?></th>
+                        <th><?php echo $row['status']; ?></th>
+                        <br>
+                    </tr>
+                <?php endforeach; ?>
+            </div>
+        </table>
+    </div>
 </section>
-
-
-

@@ -25,8 +25,8 @@ foreach ($rows as $row) {
 }
 
 if ($senha != $senhaBD) :
-    // $_SESSION['erro'] = 'E-mail e Senha invalidos';
-    header('Location: index.php?erro=invalidos');
+    $_SESSION['erro'] = 'invalidos';
+    header('Location: index.php');
     die();
 endif;
 
@@ -34,8 +34,8 @@ if ($status != 'ativo') :
 ?>
 
 <?php
-    // $_SESSION['erro'] = 'Usuário esta bloqueado, entrar em contato com administrador';
-    header('Location: index.php?erro=desativado');
+    $_SESSION['erro'] = 'desativado';
+    header('Location: index.php');
     die();
 endif;
 
