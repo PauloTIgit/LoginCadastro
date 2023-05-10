@@ -6,32 +6,11 @@
     font-weight: 200;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-
-
-
-
-
-
-
-/*
-* Dia
- */
-
-.dia{
+.page{
     transition: all 1s;
     background: rgb(213, 243, 245);
 }
-.fa-sun-o {
-    color: rgb(104, 85, 3);
-}
-.icon_dia{
-    color: rgb(243, 207, 45);
-}
-.fa-toggle-off{
-    color: #000;
-    transition: all 1s;
-}
-.dia
+.page
 .title{
     text-align: center;
     font-size: 1.5rem;
@@ -40,55 +19,6 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-/*
-* Noite
- */
-
-
-
-.noite{
-    background: rgb(2, 6, 43);
-}
-.noite .title {
-    color: #fdfdfd;
-}
-.fa-moon-o{
-    color: rgb(3, 3, 255);
-}
-.icon_noite{
-    color: rgb(6, 6, 34);
-}
-.fa-toggle-on {
-    color: #fdfdfd;
-    transition: all 1s;
-}
-
-
-.icon_dark-ligth{
-    width: 98%;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    transition: all 2s;
-}
-
-
-.radio{
-    font-weight: 200;
-    font-size: 1.7rem;
-    margin: 0 .5rem;
-    cursor: pointer;
-}
 
 .tabelaUsers{
     width: 100%;

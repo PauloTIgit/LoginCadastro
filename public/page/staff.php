@@ -41,13 +41,7 @@
 
 
 <section id="tela" class="page dia">
-    <div class="icon_dark-ligth">
-        <i id="icon_dia" class="fa icon_dia fa-sun-o" aria-hidden="true"></i>
-        <i id="dia_noite" class="fa radio fa-toggle-off" aria-hidden="true"></i>
-        <i id="icon_noite" class="fa icon_noite fa-moon-o" aria-hidden="true"></i>
-    </div>
     <p class="title"> <?php echo 'Bem-Vindo ' . $_SESSION['nome']; ?> </p>
-   
 </section>
 
 

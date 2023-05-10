@@ -38,12 +38,7 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
 
 
 
-<section id="tela" class="page dia">
-    <div class="icon_dark-ligth">
-        <i id="icon_dia" class="fa icon_dia fa-sun-o" aria-hidden="true"></i>
-        <i id="dia_noite" class="fa radio fa-toggle-off" aria-hidden="true"></i>
-        <i id="icon_noite" class="fa icon_noite fa-moon-o" aria-hidden="true"></i>
-    </div>
+<section id="tela" class="page">
     <p class="title"> <?php echo 'Cadastros' ?> </p>
     <p>home > cadastro</p>
     <div>
