@@ -84,6 +84,9 @@ endif;
 
 if (isset($_GET['pagina'])) {
     $pagina = trim(strip_tags(filter_input(INPUT_GET, 'pagina', FILTER_SANITIZE_URL)));
+    if(!file_exists('./public/page/' . $pagina . '.php')):
+        $pagina = '404';
+    endif;
     include_once './public/page/' . $pagina . '.php';
 }
 
