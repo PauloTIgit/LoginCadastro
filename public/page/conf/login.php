@@ -5,7 +5,7 @@ session_start();
 $mysqli = mysqli_connect("localhost", "root", "", "plataforma");
 
 $nome_email = $_POST['nome_email'];
-$senha = md5($_POST['senha']);
+$senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
 
 $query = "SELECT * FROM `plataforma`.`usuario` WHERE nome = '$nome_email' OR email= '$nome_email';";
 
@@ -24,7 +24,7 @@ foreach ($rows as $row) {
     $_SESSION['session'] = 1;
 }
 
-if ($senha != $senhaBD) :
+if (!password_verify($senha, $senhaBD)) :
     $_SESSION['erro'] = 'invalidos';
     header('Location: index.php');
     die();

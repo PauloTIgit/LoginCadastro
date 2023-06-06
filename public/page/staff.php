@@ -29,7 +29,7 @@ $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
     <div class="menu">
         <nav>
             <a href="?pagina=staff" style="animation-delay: 0.1s">Home</a>
-            <a href="?pagina=staff/cadastro" style="animation-delay: 0.2s">Cadastros</a>
+            <a href="?pagina=staff/tab_cadastro" style="animation-delay: 0.2s">Cadastros</a>
             <!-- <a href="#" style="animation-delay: 0.25s"></a>
             <a href="#" style="animation-delay: 0.3s"></a> -->
             <a href="?pagina=help" style="animation-delay: 0.35s">Helpdesk</a>

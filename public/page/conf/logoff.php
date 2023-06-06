@@ -2,5 +2,5 @@
     $_SESSION['nome'] = '';
     $_SESSION['erro'] = '';
     session_unset();
-    header('location: index.php');
+    header('location: ?pagina=login');
 ?>

@@ -102,7 +102,7 @@ if (isset($_GET['conf'])) :
 elseif (isset($_GET['pagina'])) :
     include_once './public/page/' . $pagina . '.php';
 else :
-    $pagina = 'home';
+    $pagina = 'hero_page';
     include_once './public/page/' . $pagina . '.php';
 endif;
 

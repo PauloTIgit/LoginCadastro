@@ -14,8 +14,8 @@ include('conexao.php');
 $nome = mysqli_real_escape_string($conexao, $_POST['nome']);
 $email = mysqli_real_escape_string($conexao, $_POST['email']);
 $senha = mysqli_real_escape_string($conexao, $_POST['senha']);
-$senhaHash = md5($senha);
-$senhaHashLower = strtolower($senhaHash);
+$senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+
 
 $query = "SELECT * FROM usuario WHERE email = '$email'";
 $result = mysqli_query($conexao, $query);
@@ -25,7 +25,7 @@ if(mysqli_num_rows($result) == 0):
 
     //definimos o comandar a dar no banco de dados
     $query = "INSERT INTO `plataforma`.`usuario`( `nome`,   `email`,      `senha`,      `nivel`,   `status`)
-                                        VALUES ('{$nome}','{$email}','{$senhaHashLower}','user',    'null')";
+                                        VALUES ('{$nome}','{$email}','{$senhaHash}','user',    'null')";
     $result = mysqli_query($conexao, $query);
 
 elseif(mysqli_num_rows($result) >= 1):
