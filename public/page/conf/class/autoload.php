@@ -1,5 +1,5 @@
 <?php
 
 $autoload = spl_autoload_register(function($classes){
-    require "$classes.class.php";
+    require "public/page/conf/$classes.class.php";
 });

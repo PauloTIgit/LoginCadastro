@@ -6,7 +6,8 @@ abstract class Ligacao {
     private $user = 'root';
     private $pass = '';
     
-    protected function conecta(){
+    
+    protected function conecta(){    
         try{
             $conn = new PDO($this->server, $this->user, $this->pass);
             $conn->exec("set names utf8");
@@ -14,6 +15,7 @@ abstract class Ligacao {
         } catch (Exception $ex) {
             echo $ex->getMessage();
         }
+
     }
     
 }

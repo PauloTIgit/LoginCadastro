@@ -1,3 +1,8 @@
+<head>
+    <link rel="stylesheet" href="public/css/form.css">
+    <link rel="stylesheet" href="public/css/login.css">
+</head>
+
     <section class="main">
         <div class="container">
             <div class="form-container">

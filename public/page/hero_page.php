@@ -1,3 +1,10 @@
+<?php
+
+    include_once "public/page/conf/conexao.php"
+
+
+?>
+
 <header>
     <link rel="stylesheet" href="./public/css/hero.css">
 </header>
@@ -5,13 +12,13 @@
     <div class="header">
         <div class="menu">
             <div class="menu_box">
-                <div class="menu_header logo">
-                    <img  src="" alt="">
-                </div>
                 <nav class="menu_lista">
+                    <div class="logo">
+                        <img  src="" alt="">
+                    </div>
                     <a href="" class="link"></a>
-                    <a href="" class="link">Blog</a>
-                    <a href="" class="link">Acessar</a>
+                    <a href="" class="link"></a>
+                    <a href="?pagina=login" class="link">Entrar</a>
                 </nav>
             </div>
         </div>

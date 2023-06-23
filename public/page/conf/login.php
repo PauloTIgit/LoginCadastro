@@ -2,7 +2,7 @@
 session_start();
 
 
-$mysqli = mysqli_connect("localhost", "root", "", "plataforma");
+// $mysqli = mysqli_connect("localhost", "root", "", "plataforma");
 
 $nome_email = $_POST['nome_email'];
 $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
