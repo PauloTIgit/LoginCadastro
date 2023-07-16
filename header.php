@@ -9,7 +9,16 @@
     <meta name="description" content="Site de aulas online">
     <link rel="stylesheet" type="text/css" href="./public/css/app.css">
     <link rel="stylesheet" type="text/css" href="./public/css/root.css">
+<<<<<<< Updated upstream
+=======
+    <link rel="stylesheet" type="text/css" href="./public/css/staff.css">
+    <link rel="stylesheet" type="text/css" href="./public/css/hero.css">
+    <link rel="stylesheet" type="text/css" href="./public/css/componente.css">
+    <link rel="stylesheet" type="text/css" href="./menu/menu.css">
+    <link rel="stylesheet" type="text/css" href="./public/css/404.css">
+>>>>>>> Stashed changes
     <script src="https://kit.fontawesome.com/0b3e36b549.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
+    

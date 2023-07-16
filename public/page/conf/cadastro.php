@@ -1,9 +1,9 @@
 <?php
 
-if (empty($_POST['email']) || empty($_POST['senha'])) {
-    header('Location: index.php');
-    die();
-}
+// if (empty($_POST['email']) || empty($_POST['senha'])) {
+//     header('Location: index.php');
+//     die();
+// }
 
 //definimos a conexão 
 include('conexao.php');
@@ -11,21 +11,23 @@ include('conexao.php');
 
 
 //definimos algumas variaveis
-$nome = mysqli_real_escape_string($conexao, $_POST['nome']);
+$usuario = mysqli_real_escape_string($conexao, $_POST['nome']);
 $email = mysqli_real_escape_string($conexao, $_POST['email']);
 $senha = mysqli_real_escape_string($conexao, $_POST['senha']);
+$nivel = 'admin';
+$status = 'ativo';
 $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
 
-$query = "SELECT * FROM usuario WHERE email = '$email'";
+$query = "SELECT * FROM usuarios WHERE email = '$email'";
 $result = mysqli_query($conexao, $query);
 
 
 if(mysqli_num_rows($result) == 0):
 
     //definimos o comandar a dar no banco de dados
-    $query = "INSERT INTO `plataforma`.`usuario`( `nome`,   `email`,      `senha`,      `nivel`,   `status`)
-                                        VALUES ('{$nome}','{$email}','{$senhaHash}','user',    'null')";
+    $query = "INSERT INTO `plataforma`.`usuarios`( `usuario`,   `email`,      `senha`,      `nivel`,   `status`)
+                                        VALUES ('{$usuario}','{$email}','{$senhaHash}','{$nivel}',    '{$status}')";
     $result = mysqli_query($conexao, $query);
 
 elseif(mysqli_num_rows($result) >= 1):
