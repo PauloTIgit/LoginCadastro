@@ -1,0 +1,31 @@
+/*
+*       RESETE
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+@font-face {
+    font-family: NotoSans;
+    src: url(fontes/Noto_Sans/NotoSans-Regular.ttf)
+}
+
+
+/*
+*   Variaveis
+*/
+
+:root{
+    /* Paleta de cores*/
+    --sg-color-azul: #4C8BF5;
+    --sg-color-cinzaA: #333333;
+    --sg-color-cinzaB: #666666;
+    --sg-color-amarelo: #f5d442;
+    --sg-color-laranja: #FF5733;
+    --sg-color-pretto: #0a0a0a;
+    --sg-color-branco: #fff;
+}

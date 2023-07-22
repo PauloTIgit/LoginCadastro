@@ -35,23 +35,34 @@ fotes_
 
 ## Como usar
 
-1. Clone o repositório em sua máquina local:
+1. Clone o repositório em sua máquina local de preferencia no htdocs do xampp:
 
 ```
 git clone https://github.com/seu-usuario/nome-do-repositorio.git
 ```
 
-2. Abra o terminal e nolocal do projeto digite:
+2. No banco de dados execute os comandos abixo.
 ```
-php -S localhost:5050
+CREATE DATABASE plataforma;
+
+USE plataforma;
+
+CREATE TABLE `usuario` (
+	`usuario_id` int not null auto_increment,
+    `nome` varchar(200) not null,
+    `email` varchar(200) not null,
+    `senha` varchar(200) not null,
+    `nivel` varchar(5) not null ,
+    `status` varchar(5) not null,
+    primary key (`usuario_id`)
+);
+
 ```
 
-3. abra no navegador e digite a url localhost:5050.
+Assim irá estrutura o banco de dados para acomanhar a logica do condego.
 
-## Como contribuir
+Sertifique-se de ter o xampp rodando.
 
-Se você quiser contribuir para este projeto, você pode enviar um pull request com suas alterações propostas. Certifique-se de seguir as diretrizes de contribuição do projeto.
+3. abra no navegador e digite a url localhost/plataforma.
 
-## Licença
 
-Este projeto é licenciado sob a licença MIT. Consulte o arquivo `LICENSE` para obter mais informações.# LoginCadastro
