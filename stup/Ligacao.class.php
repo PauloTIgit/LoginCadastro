@@ -4,7 +4,7 @@ date_default_timezone_set("America/Sao_Paulo");
 
 abstract class Ligacao {    
     
-    private $server = 'mysql:host=localhost;dbname=ruralchick';
+    private $server = 'mysql:host=localhost;dbname=bancodados';
     private $user = 'root';
     private $pass = '';
     

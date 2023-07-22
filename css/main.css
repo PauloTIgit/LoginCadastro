@@ -1,0 +1,15 @@
+/*
+*       RESETE
+*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+@font-face {
+    font-family: NotoSans;
+    src: url(fontes/Noto_Sans/NotoSans-Regular.ttf)
+}
