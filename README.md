@@ -93,6 +93,6 @@ CREATE TABLE `usuario`(
 Assim irá estrutura o banco de dados para acomanhar a logica do projeto.
 
 
-3. abra no navegador e digite a url http://localhost/{Pasta que onde você clonou o projeto}.
+3. abra no navegador e digite a url http://localhost/LoginCadastro.
 
 
