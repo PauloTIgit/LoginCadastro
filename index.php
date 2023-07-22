@@ -13,6 +13,9 @@
 </head>
 
 <body>
+    <?php
+    
+    ?>
     <section class="main">
         <div class="login-container" id="login-container">
             <div class="form-container">
@@ -28,34 +31,26 @@
                 <!--Fim do Login-->
 
                 <!--Inicio do Cadastro-->
-                <form action="./registro.php" method="post" class="form form-registro">
+                <form action="./registro.php" method="POST" class="form form-registro">
                     <h2 class="form-title">Criar conta</h2>
                     <div class="form-input-container">
-                        <input type="text" class="form-input form-user" placeholder="Nome" required>
-                        <input type="email" class="form-input form-user" placeholder="E-mail" required>
-                        <input type="password" class="form-input form-pass" placeholder="Senha" required>
+                        <input name="nome" type="text" class="form-input form-user" placeholder="Nome" required>
+                        <input name="telefone" type="tel" class="form-input form-user" placeholder="Celular" required>
+                        <input name="email" type="email" class="form-input form-user" placeholder="E-mail" required>
+                        <input name="senha" type="password" class="form-input form-pass" placeholder="Senha" required>
                     </div>
-                    <input type="submit" class="form-button" value="Cadastrar">
+                    <input name="cadastrar" type="submit"  class="form-button" value="Cadastrar">
                 </form>
-                <!--Fim do Cadastro-->
-                <?php
-                //variaveis do login
-                $user = $_POST['email'];
-                $senha = $_POST['senha'];
-                if ($user == 'paulo@gmail.com' && $senha == '1234') {
-                    header('Location: ./plataforma/index.php');
-                }
-                ?>
             </div>
             <div class="overlay-container">
                 <div class="overlay over-entrar">
                     <h2 class="overlay-title">Já tem conta?</h2>
-                    <p class="overlay-text">Para entrar na nossa plataforma faça login com sua credencial</p>
+                    <p class="overlay-text">Faça o login para reservar Online </p>
                     <button class="overlay-button" onclick="eventOverlay()">Entrar</button>
                 </div>
                 <div class="overlay over-registro">
-                    <h2 class="overlay-title">Olá Aluno</h2>
-                    <p class="overlay-text">Cadastre-se e comece a usar a nossa plataforma Online</p>
+                    <h2 class="overlay-title">Suas Reservas</h2>
+                    <p class="overlay-text">Cadastre-se para realizar <br> suas reservas Online</p>
                     <button class="overlay-button" onclick="eventOverlay()">Cadastrar</button>
                 </div>
             </div>
